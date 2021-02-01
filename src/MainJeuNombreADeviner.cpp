@@ -17,7 +17,9 @@ using namespace std;
 int main()
 {
     cout << "Vous allez jouer pour deviner un nombre secret" << endl;
-
+    Tjoueur joueur1;
+    InitJoueur(joueur1,"T");
+    JouerPartie(joueur1);
     return 0;
 }
 

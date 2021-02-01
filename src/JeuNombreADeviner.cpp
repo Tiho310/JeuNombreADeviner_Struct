@@ -35,34 +35,74 @@ void InitJoueur(TJoueur &joueurAcreer, string un_nom)
 
 int TirerNombreMystere()
 {
-    int srand;
-    srand (time(NULL));
-        return -1;
+    int rand();
+    int nombreADeviner;
+    nombreADeviner = rand()%11;
+        return nombreADeviner;
 }
 
 
 // Nom :JouerPartie
 // Rôle : Fait jouer une partie au joueur passé en paramètre
 //        A la fin, met à jour les informations du joueur
-// Paramètres d'entrée:
+// Paramètres d'entrée:nombreADeviner
 // Paramètres de sortie:
-// Paramètres d'entrée/sortie :
+// Paramètres d'entrée/sortie :&un_joueur
 
 void JouerPartie(TJoueur& un_joueur, int nombreADeviner)
 {
-    //A COMPLETER
+    int cpt;
+    bool gagne;
+    bool etat = false;
+    cpt = 0;
+    int nbEssais;
+    int nombresSaisies;
+    cout << "Entrez un nombre entre 0 et 10 : " << endl;
+    while (cpt != 4 && nombresSaisies != nombreADeviner)
+    {
+        cin >> nombresSaisies ;
+        if(nombresSaisies > nombreADeviner)
+        {
+
+            cout << "C'est moins : " << endl;
+            cpt++;
+        }
+        else if (nombresSaisies < nombreADeviner)
+        {
+            cout << "C'est plus : " << endl;
+            cpt++;
+        }
+        if(nombresSaisies == nombreADeviner)
+        {
+            cout << "Tu est trop fort : " << endl;
+            cpt++;
+            nbEssais = cpt;
+            etat = true;
+            gagne = etat;
+
+        }
+
+    }
+    if (cpt == 4 && nombresSaisies != nombresSaisies)
+    {
+        cout << "Tu as perdu le nombre à deviner était : " << nombreADeviner << endl;
+    }
+    nbEssais = cpt;
+    gagne = etat;
+
+
 }
 
 
 // Nom : MajResultatsJoueur
 // Rôle : met à jour les informations du joueur passé en paramètre
-// Paramètres d'entrée:
+// Paramètres d'entrée:gagne, nbEssais
 // Paramètres de sortie:
-// Paramètres d'entrée/sortie :
+// Paramètres d'entrée/sortie :&joueur
 
 void MajResultatsJoueur(TJoueur joueur, int nbEssais, bool gagne)
 {
-   // A COMPLETER
+
 }
 
 // Nom : ResultatsJoueur
